@@ -9,7 +9,6 @@ const routes: Routes = [
   { path: 'employees', component: EmployeeListComponent },
   { path: 'employee-details/:id', component: EmployeeDetailsComponent },
   { path: '', redirectTo: 'employees', pathMatch: 'full' },
-  { path: '**', redirectTo: 'employees', pathMatch: 'full' },
   { path: 'create-employee', component: CreateEmployeeComponent },
   { path: 'update-employee/:id', component: UpdateEmployeeComponent }
 ];

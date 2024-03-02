@@ -1,1 +1,24 @@
-<p>create-employee works!</p>
+<div class="row">
+  <div class="card col-md-6 offset-md-3">
+  <div class="row">
+    <h3 class="text-center">Add Employee</h3>
+    <hr />
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" name="firstName" class="form-control" id="firstName" [(ngModel)]="employee.firstName">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" name="lastName" class="form-control" id="lastName" [(ngModel)]="employee.lastName">
+        </div>
+        <div class="form-group">
+          <label for="emailId">Email</label>
+          <input type="email" name="emailId" class="form-control" id="emailId" [(ngModel)]="employee.emailId">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+</div>
+</div>
