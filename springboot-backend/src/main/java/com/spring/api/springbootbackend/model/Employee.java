@@ -1,15 +1,21 @@
 package com.spring.api.springbootbackend.model;
+
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="employees")
+@Table(name = "employees")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
+    @Column(nullable = false)
     private String firstName;
+
+    @Column(nullable = false)
     private String lastName;
+
+    @Column(nullable = false)
     private String emailId;
 
     public Employee() {
@@ -26,7 +32,7 @@ public class Employee {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
