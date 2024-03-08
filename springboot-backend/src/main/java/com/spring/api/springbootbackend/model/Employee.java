@@ -28,7 +28,7 @@ public class Employee {
         this.emailId = emailId;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
