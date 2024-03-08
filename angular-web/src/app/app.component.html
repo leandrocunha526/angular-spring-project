@@ -6,17 +6,24 @@
       </a>
     </li>
     <li class="nav-item">
-      <a routerLink="create-employee" routerLinkActive="active" class="nav-link">
+      <a
+        routerLink="create-employee"
+        routerLinkActive="active"
+        class="nav-link"
+      >
         Add employee
       </a>
     </li>
   </ul>
 </nav>
 
-<h1 class="text-center"> {{title}} </h1>
 <div class="container">
-  <router-outlet></router-outlet>
+  <div class="row">
+    <h1 class="text-center">{{ title }}</h1>
+    <router-outlet></router-outlet>
+  </div>
 </div>
+
 <footer class="footer">
   <div class="container">
     <span class="text-muted">All Rights Reserved</span>
