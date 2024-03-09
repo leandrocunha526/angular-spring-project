@@ -30,7 +30,7 @@ export class EmployeeListComponent implements OnInit {
       console.log(data);
       this.getEmployees();
       this.message = `O funcionário ${id} foi deletado com sucesso`;
-    });
+    }, error => console.log(error));
   }
 
   employeeDetails(id: number) {

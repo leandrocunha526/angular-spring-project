@@ -1,1 +1,25 @@
-<p>employee-details works!</p>
+<h1>Detalhes do funcionário código: {{ employee.id }}</h1>
+<div class="row">
+  <div class="card" style="width: 180rem">
+    <ul class="list-group list-group-flush">
+      <div>
+        <li class="list-group-item">
+          <strong>Nome</strong>
+          {{ employee.firstName }}
+        </li>
+      </div>
+
+      <div>
+        <li class="list-group-item">
+          <strong>Sobrenome ou último nome:</strong> {{ employee.lastName }}
+        </li>
+      </div>
+
+      <div>
+        <li class="list-group-item">
+          <strong>E-mail id: </strong> {{ employee.emailId }}
+        </li>
+      </div>
+    </ul>
+  </div>
+</div>
