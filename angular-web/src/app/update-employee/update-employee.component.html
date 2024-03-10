@@ -1,1 +1,95 @@
-<p>update-employee works!</p>
+<div class="row">
+  <div class="card col-md-12">
+    <div class="row">
+      <h3 class="text-center">
+        Atualizar os dados do funcionário de código {{ employee.id }}
+      </h3>
+      <hr />
+      <div class="card-body">
+        <div>
+          <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+            {{ errorMessage }}
+          </div>
+          <div *ngIf="message" class="alert alert-success" role="alert">
+            {{ message }}
+          </div>
+        </div>
+        <form (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+          <div class="form-group mb-md-4">
+            <label for="firstName">Seu primeiro nome:</label>
+            <input
+              type="text"
+              placeholder="Seu nome"
+              formControlName="firstName"
+              class="form-control"
+              id="firstName"
+              [(ngModel)]="employee.firstName"
+            />
+            <div
+              *ngIf="
+                formGroup.get('firstName').invalid &&
+                (formGroup.get('firstName').dirty ||
+                  formGroup.get('firstName').touched)
+              "
+            >
+              <div *ngIf="formGroup.get('firstName').hasError('required')">
+                Seu primeiro nome é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="form-group mb-4">
+            <label for="lastName">Seu último nome:</label>
+            <input
+              type="text"
+              placeholder="Seu último nome"
+              formControlName="lastName"
+              class="form-control"
+              id="lastName"
+              [(ngModel)]="employee.lastName"
+            />
+            <div
+              *ngIf="
+                formGroup.get('lastName').invalid &&
+                (formGroup.get('lastName').dirty ||
+                  formGroup.get('lastName').touched)
+              "
+            >
+              <div *ngIf="formGroup.get('lastName').hasError('required')">
+                Seu último nome é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="form-group mb-4">
+            <label for="emailId">Seu e-mail:</label>
+            <input
+              type="email"
+              placeholder="Seu melhor e-mail"
+              formControlName="emailId"
+              class="form-control"
+              id="emailId"
+              [(ngModel)]="employee.emailId"
+            />
+            <div
+              *ngIf="
+                formGroup.get('emailId').invalid &&
+                (formGroup.get('emailId').dirty ||
+                  formGroup.get('emailId').touched)
+              "
+            >
+              <div *ngIf="formGroup.get('emailId').hasError('required')">
+                E-mail é obrigatório.
+              </div>
+              <div *ngIf="formGroup.get('emailId').hasError('email')">
+                E-mail inválido.
+              </div>
+            </div>
+          </div>
+          <div class="form-group mb-4">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="reset" class="btn btn-danger">Limpar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
