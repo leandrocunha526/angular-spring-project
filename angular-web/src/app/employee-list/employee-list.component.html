@@ -1,5 +1,16 @@
 <div class="row">
   <h2>Lista de funcionários</h2>
+  <div class="form-group mb-md-4">
+    <label for="firstName">Pesquisa</label>
+    <input
+      type="text"
+      placeholder="Digite o primeiro nome que queira pesquisar"
+      class="form-control"
+      id="firstName"
+      [(ngModel)]="searchQuery"
+      (input)="searchEmployee()"
+    />
+  </div>
   <div>
     <div *ngIf="message" class="alert alert-success" role="alert">
       {{ message }}

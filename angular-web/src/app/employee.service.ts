@@ -31,4 +31,8 @@ export class EmployeeService {
   deleteEmployee(id: number): Observable<Object> {
     return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
+
+  searchEmployee(firstName: string): Observable<Employee[]> {
+    return this.httpClient.get<Employee[]>(`http://localhost:8080/api/v1/search?firstName=${firstName}`);
+  }
 }

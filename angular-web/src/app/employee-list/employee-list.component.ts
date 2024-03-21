@@ -12,6 +12,7 @@ export class EmployeeListComponent implements OnInit {
   employees: Employee[];
   errorMessage: string = '';
   message: string = "";
+  searchQuery: string;
 
   constructor(private employeeService: EmployeeService, private route: Router) { }
 
@@ -39,5 +40,16 @@ export class EmployeeListComponent implements OnInit {
 
   updateEmployee(id: number) {
     this.route.navigate(['update-employee', id]);
+  }
+
+  searchEmployee() {
+    this.employeeService.searchEmployee(this.searchQuery).subscribe(
+      data => {
+        this.employees = data;
+      },
+      error => {
+        console.error('Error search: ', error);
+      }
+    );
   }
 }
