@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.spring.api.springbootbackend.service.EmployeeService;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,5 +64,20 @@ public class EmployeeController {
         Map<String, Boolean> response = new HashMap<>();
         response.put("Employee deleted with sucessfully", Boolean.TRUE);
         return ResponseEntity.ok(response);
+    }
+
+    private final EmployeeService employeeService;
+    @Autowired
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
+
+    @GetMapping("/search")
+    public List<Employee> findByFirstName(@RequestParam(required = false) String firstName){
+        if(firstName != null){
+            return employeeService.findByFirstName(firstName);
+        } else{
+            return Collections.emptyList();
+        }
     }
 }
